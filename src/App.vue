@@ -2,13 +2,18 @@
   <div id="app">
     <nav>
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">About</router-link> |
+      <router-link to="/login">Login</router-link>
     </nav>
     <router-view/>
   </div>
 </template>
 
 <style lang="scss">
+*{
+  background-color: #023047;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -22,10 +27,10 @@ nav {
 
   a {
     font-weight: bold;
-    color: #2c3e50;
+    color: #FB8500;
 
     &.router-link-exact-active {
-      color: #42b983;
+      color:#FB8500;
     }
   }
 }
