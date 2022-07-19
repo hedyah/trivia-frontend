@@ -14,39 +14,15 @@
       <div>
       <img src="https://img.freepik.com/free-vector/map-books-pen-globe-magnifying-glass-geography-lesson-concept_620585-222.jpg?w=2000" alt="">
       <h3>Geography</h3>
-      <v-btn color="amber darken-1" block @click="$route.push('/quiz')">
+      <v-btn color="amber darken-1" @click="$router.push('/quiz/1')" block>
         click
       </v-btn>
       </div>
-      
-      <div>
-      <img src="https://img.freepik.com/free-vector/cartoon-cute-color-palette-paint-brush-characters_8071-6100.jpg" alt="">
-      <h3>Art</h3>
-      <v-btn  color="amber darken-1" @click="$route.push('/quiz')" block>
-        click
-      </v-btn>
-      </div>
-      
+
       <div>
       <img src="https://www.nicepng.com/png/detail/816-8167151_vector-illustration-of-sports-balls-with-football-all.png" alt="">
       <h3>Sports</h3>
-      <v-btn color="amber darken-1" block>
-        click
-      </v-btn>
-      </div>
-      
-      <div>
-      <img src="https://cdn.dribbble.com/users/2183879/screenshots/4492544/media/eac5a1308dbdd0d9d9e58a45a152e853.png?compress=1&resize=400x300" alt="">
-      <h3>Science</h3>
-      <v-btn color="amber darken-1" block>
-        click
-      </v-btn>
-      </div>
-      
-      <div>
-      <img src="https://i.pinimg.com/474x/d7/f2/4a/d7f24aca9d3116853460583028095087.jpg" alt="">
-      <h3>History</h3>
-      <v-btn color="amber darken-1" block >
+     <v-btn color="amber darken-1" block @click="$router.push('/quiz/2')">
         click
       </v-btn>
       </div>
@@ -54,18 +30,70 @@
       <div>
       <img src="https://cdn.dribbble.com/users/1787323/screenshots/10742780/media/662eea472953bf93aa1cc6fbc6712bd0.png?compress=1&resize=400x300&vertical=top" alt="">
       <h3>Movies</h3>
-      <v-btn block color="amber darken-1" >
+      <v-btn color="amber darken-1" block @click="$router.push('/quiz/3')">
         click
       </v-btn>
       </div>
+
+      <div>
+      <img src="https://img.freepik.com/free-vector/cartoon-cute-color-palette-paint-brush-characters_8071-6100.jpg" alt="">
+      <h3>Art</h3>
+      <v-btn  color="amber darken-1" @click="$router.push('/quiz/4')" block>
+        click
+      </v-btn>
+      </div>
+      
+      <div>
+      <img src="https://i.pinimg.com/474x/d7/f2/4a/d7f24aca9d3116853460583028095087.jpg" alt="">
+      <h3>History</h3>
+      <v-btn color="amber darken-1" block @click="$router.push('/quiz/5')">
+        click
+      </v-btn>
+      </div>
+      
+      <div>
+      <img src="https://cdn.dribbble.com/users/2183879/screenshots/4492544/media/eac5a1308dbdd0d9d9e58a45a152e853.png?compress=1&resize=400x300" alt="">
+      <h3>Science</h3>
+      <v-btn color="amber darken-1" block @click="$router.push('/quiz/6')">
+        click
+      </v-btn>
+      </div>
+      
+
+      
   </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
   export default {
     name: 'HelloWorld',
+    data() {
+            return {
+                quiz_id: null,
+                quizzes:[]
+            }
 
+        },
+        methods:{
+            getquizzes(){
+                axios.request({
+                    url: process.env.VUE_APP_API_URL+"quizzes",
+                    method:"GET",
+
+                }).then((response)=>{
+                    console.log(response);
+                    this.quizzes = response.data;
+                }).catch((error)=>{
+                    console.log(error);
+                })
+            }
+        },
+        mounted () {
+          this.getquizzes();
+          console.log(this.$route.params.genre_id)
+        },
     
     
   }
@@ -112,6 +140,35 @@ h1{
         margin: 5px;
     }
     
+}
+@media only screen and (max-width: 550px){
+  .img{
+    display: none;
+  }
+  .genre{
+    grid-template-columns: 1fr 1fr;
+    
+  }
+  
+}
+@media only screen and (min-width: 768px) {
+  .img{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    img{
+      width: 100%;
+    }
+    
+    
+}
+}
+@media only screen and (min-width: 1200px) {
+  .gridcontainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    
+    
+}
 }
 
 </style>

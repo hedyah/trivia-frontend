@@ -6,9 +6,9 @@
       dark
     >
       <div class="d-flex align-center">
-        <v-img
+        <v-img 
           alt=" Logo"
-          class="shrink mr-2"
+          class="shrink mr-2 "
           contain
           src="https://upload.wikimedia.org/wikipedia/en/2/27/Trivia.png"
           transition="scale-transition"
@@ -16,7 +16,7 @@
           @click="$router.push('/')"
           
         />
-
+        
         <!-- <v-img
           alt="Vuetify Name"
           class="shrink mt-1 hidden-sm-and-down"
@@ -31,7 +31,7 @@
       <v-divider vertical></v-divider>
       
 
-      <v-btn color="amber darken-1" dark rounded @click="$router.push('/about')" text>
+      <v-btn color="amber darken-1" class="hidden-md-and-down" dark rounded @click="$router.push('/about')" text>
         About
 
       </v-btn>
@@ -62,12 +62,15 @@
     <v-main>
       <router-view/>
     </v-main>
+    <FooterComp/>
   </v-app>
 </template>
 
 <script>
+import FooterComp from './components/FooterComp.vue';
 
 export default {
+  components: { FooterComp },
   name: 'App',
 
   data: () => ({

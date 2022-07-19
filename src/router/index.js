@@ -3,8 +3,10 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import SignView from '../views/SignView.vue'
-
-
+import QuizView from '../views/QuizView.vue'
+import GameView from '../views/GameView.vue'
+import ClientView from '../views/ClientView.vue'
+import ScoreView from '../views/ScoreView.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -19,9 +21,29 @@ const routes = [
     component: LoginView,
   },
   {
+    path: '/profile',
+    name: 'profile',
+    component: ClientView,
+  },
+  {
     path: '/sign',
     name: 'sign',
     component: SignView,
+  },
+  {
+    path: '/quiz/:genre_id',
+    name: 'quiz',
+    component: QuizView,
+  },
+  {
+    path: '/game/scoreboard',
+    name: 'game/scoreboard',
+    component: ScoreView,
+  },
+  {
+    path: '/game/:quiz_id',
+    name: 'game/',
+    component: GameView,
   },
   {
     path: '/about',
@@ -37,4 +59,4 @@ const router = new VueRouter({
   routes
 })
 
-export default router
+export default router;

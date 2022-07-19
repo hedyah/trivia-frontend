@@ -8,7 +8,10 @@
         </div>
 
         <h1>About us</h1>
-        <p></p>
+        <p>This is a cool Website that allows you to play Free Trivia Games that test your knowledge 
+          on variety of genres and you can even contribute to the knowledge
+          by creating an account that allows you to create your very own Quizzes!</p>
+          
   </div>
 </template>
 
@@ -24,5 +27,45 @@
         margin: 5px;
     }
     
+}
+h1{
+  color: #023047;
+  text-align: center;
+  background-color: #219EBC;
+  margin: 20px;
+}
+p{
+  border: #219EBC solid 4px;
+  color: #023047;
+  font-size: 25px;
+  margin: 10px;
+  text-align: center;
+  background-color:#FFB703 ;
+}
+img{
+  width: 30%;
+}
+@media only screen and (max-width: 500px){
+  .img{
+    display: none;
+    
+}
+}
+@media only screen and (min-width: 768px) {
+  .img{
+    img{
+      width: 23%;
+    }
+    
+    
+    
+}
+}
+@media only screen and (min-width: 1200px) {
+  .img{
+    
+    width: 100%;
+    
+}
 }
 </style>
