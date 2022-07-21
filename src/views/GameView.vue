@@ -1,30 +1,30 @@
 <template>
     <div>
-        <div id="quiz" v-for="quiz in quizzes" :key="quiz.quiz_id">
-        <h3>{{quiz.name}}</h3>
-        </div>
         
-    <div >
-         <v-card id="questions" v-for="question in questions" :key="question.id"
+        
+    <div>
+        <v-card id="questions" v-for="question in questions" :key="question.id"
     class="mx-auto"
     max-width="800"
-  >
-    <v-img
-      class="white--text align-end"
-      height="500px"
-      :src= "question.image_url" alt="images for questions">
-
     >
-      <v-card-title></v-card-title>
+    <v-img
+        class="white--text align-end"
+        height="500px"
+        :src= "question.image_url" alt="images for questions">
+
+    
+        <v-card-title></v-card-title>
     </v-img>
 
-    <v-card-subtitle class="pb-0">
-      
-    </v-card-subtitle>
+        <v-card-subtitle class="pb-0">
+    <div id="quiz" v-for="quiz in quizzes" :key="quiz.id">
+        <h3>{{quiz.name}}</h3>
+        </div>
+        </v-card-subtitle>
 
     <v-card-text class="text--primary">
-      <h3>{{question.question}}</h3>
-      
+        <h3>{{question.question}}</h3>
+    
 
     </v-card-text>
 
@@ -32,17 +32,25 @@
 
         <div v-for="answer in question.answers" :key="answer.answer_id">
             
-            <v-btn elevation="2" color="amber darken-1 " @click="checkanswer(answer.answer_id)"  >
+            <v-btn elevation="2" color="amber darken-1 "
+            @click="checkanswer(answer.answer_id)"  >
                 {{answer.answer}}
-                
                 {{answer.answer_id}}
-                
                 </v-btn>
-
         </div>
 
+        <div v-for="correct in answer" :key="correct.correct">
+        <v-btn text>
+        <h3>{{correct.correct}}</h3>
+        </v-btn>
+        </div>
     
     </v-card-actions>
+            
+            
+            
+
+
   </v-card>
 
 
@@ -60,10 +68,10 @@ import axios from 'axios'
         data() {
             return {
                 quiz_id: null,
-                quizzes:[''],
-                questions:[''],
-                answers:[],
-                answer_id:null,
+                quizzes:[],
+                questions:[],
+                answer:[],
+                
             }
 
         },
@@ -106,13 +114,16 @@ import axios from 'axios'
                     method:"POST",
                     data:{
                         
-                        answer_id:this.answers
+                        answer_id:this.questions
 
                     }
                 }).then((response)=>{
                     console.log(response);
-                    this.answers = response.data;
+                    this.answer = response.data;
                     
+                    
+                    
+
                 }).catch((error)=>{
                     console.log(error);
                 })
@@ -121,7 +132,7 @@ import axios from 'axios'
         mounted () {
             this.getquestions()
             this.getquizzes()
-            this.checkanswer()
+            
         },
     }
     

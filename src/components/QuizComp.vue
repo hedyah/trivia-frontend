@@ -1,5 +1,10 @@
 <template>
     <div>
+        <div>
+            <v-btn color="light-blue lighten-3" block large @click="$router.push('/game/quiz/scoreboard')">
+                see scoreboard
+            </v-btn>
+        </div>
 
         <div id="quiz" v-for="quiz in quizzes" :key="quiz.quiz_id">
             

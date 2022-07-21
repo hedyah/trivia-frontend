@@ -16,46 +16,16 @@
         :complete="e2 > 2"
         step="2"
       >
-        Question 1
-      </v-stepper-step>
-
-      <!-- <v-divider></v-divider>
-
-      <v-stepper-step color="amber darken-1" v-model="e3"
-      :complete="e3 > 3" 
-      step="3" 
-      
-        >
-        
-        Question 2
-      </v-stepper-step>
-
-      <v-divider></v-divider>
-
-      <v-stepper-step color="amber darken-1" v-model="e4" :complete="e4 > 4"
-         step="4">
-        Question 3
+        Question 
       </v-stepper-step>
       <v-divider></v-divider>
 
-      <v-stepper-step color="amber darken-1" v-model="e5" :complete="e5 > 5"
-        step="5">
-        Question 4
-      </v-stepper-step>
-      <v-divider></v-divider>
-
-      <v-stepper-step color="amber darken-1" v-model="e6" :complete="e6 > 6"
-         step="6">
-        Question 5
-      </v-stepper-step> 
-      <v-divider></v-divider> -->
-
-      <v-stepper-step color="amber darken-1" :complete="e1 > 7"
-        step="7">
+      <v-stepper-step color="amber darken-1" :complete="e1 > 3"
+        step="3">
         Submit
       </v-stepper-step>
     </v-stepper-header>
-
+    <!-- here is to start to create the quiz -->
     <v-stepper-items>
       <v-stepper-content step="1">
         <v-card
@@ -101,7 +71,7 @@
           save
         </v-btn>
       </v-stepper-content>
-
+      <!-- here we create the questions -->
       <v-stepper-content step="2">
         <v-card
           class="mb-12"
@@ -149,7 +119,7 @@
         </v-card>
 
         <v-btn
-          color="primary"
+          color="amber darken-1"
           @click="e1 = 3"
         >
           Continue
@@ -160,249 +130,6 @@
         </v-btn>
       </v-stepper-content>
 
-      <!-- <v-stepper-content step="3">
-        <v-card
-          class="mb-12"
-          color="white"
-          height="360px"
-        > 
-        <v-text-field
-      v-model="name"
-
-      
-      label="Question"
-      required
-    ></v-text-field>
-    
-    <v-text-field
-      
-      
-      label="Answer"
-      required
-      
-    ></v-text-field>
-    <v-text-field
-      
-      
-      label="Incorrect answers"
-      required
-      
-    ></v-text-field>
-    <v-text-field
-      
-      
-      label="Image URL"
-      required
-      
-    ></v-text-field>
-    <v-text-field
-      
-      
-      label="Image Answer URL"
-      required
-      
-    ></v-text-field>
-
-    
-    
-        </v-card>
-        
-        
-
-        <v-btn
-          color="primary"
-          @click="e1 = 4"
-        >
-          Continue
-        </v-btn>
-
-        <v-btn text>
-          Cancel
-        </v-btn>
-      </v-stepper-content>
-
-      <v-stepper-content step="4">
-        <v-card
-          class="mb-12"
-          color="white"
-          height="360px"
-        > 
-        <v-text-field
-      v-model="name"
-
-      
-      label="Question"
-      required
-    ></v-text-field>
-    
-    <v-text-field
-      
-      
-      label="Answer"
-      required
-      
-    ></v-text-field>
-    <v-text-field
-      
-      
-      label="Incorrect answers"
-      required
-      
-    ></v-text-field>
-    <v-text-field
-      
-      
-      label="Image URL"
-      required
-      
-    ></v-text-field>
-    <v-text-field
-      
-      
-      label="Image Answer URL"
-      required
-      
-    ></v-text-field>
-
-    
-    
-        </v-card>
-        
-        
-
-        <v-btn
-          color="primary"
-          @click="e1 = 5"
-        >
-          Continue
-        </v-btn>
-
-        <v-btn text>
-          Cancel
-        </v-btn>
-      </v-stepper-content>
-
-      <v-stepper-content step="5">
-        <v-card
-          class="mb-12"
-          color="white"
-          height="360px"
-        > 
-        <v-text-field
-      v-model="name"
-
-      
-      label="Question"
-      required
-    ></v-text-field>
-    
-    <v-text-field
-      
-      
-      label="Answer"
-      required
-      
-    ></v-text-field>
-    <v-text-field
-      
-      
-      label="Incorrect answers"
-      required
-      
-    ></v-text-field>
-    <v-text-field
-      
-      
-      label="Image URL"
-      required
-      
-    ></v-text-field>
-    <v-text-field
-      
-      
-      label="Image Answer URL"
-      required
-      
-    ></v-text-field>
-
-    
-    
-        </v-card>
-        
-        
-
-        <v-btn
-          color="primary"
-          @click="e1 = 6"
-        >
-          Continue
-        </v-btn>
-
-        <v-btn text>
-          Cancel
-        </v-btn>
-      </v-stepper-content>
-
-        <v-stepper-content step="6">
-        <v-card
-          class="mb-12"
-          color="white"
-          height="360px"
-        > 
-        <v-text-field
-      v-model="name"
-
-      
-      label="Question"
-      required
-    ></v-text-field>
-    
-    <v-text-field
-      
-      
-      label="Answer"
-      required
-      
-    ></v-text-field>
-    <v-text-field
-      
-      
-      label="Incorrect answers"
-      required
-      
-    ></v-text-field>
-    <v-text-field
-      
-      
-      label="Image URL"
-      required
-      
-    ></v-text-field>
-    <v-text-field
-      
-      
-      label="Image Answer URl"
-      required
-      
-    ></v-text-field>
-
-    
-    
-        </v-card> -->
-        
-        
-<!-- 
-        <v-btn
-          color="primary"
-          @click="e1 = 7"
-        >
-          Continue
-        </v-btn>
-
-        <v-btn text>
-          Cancel
-        </v-btn>
-      </v-stepper-content> -->
 
       <v-stepper-content step="3">
         <v-card
@@ -418,8 +145,8 @@
           Continue
         </v-btn>
 
-        <v-btn text>
-          Cancel
+        <v-btn @click="activatequiz" text>
+          save
         </v-btn>
       </v-stepper-content>
     </v-stepper-items>
@@ -501,6 +228,22 @@ import axios from 'axios'
                     console.log(error);
                 })
             },
+            activatequiz(){
+                axios.request({
+                    url: process.env.VUE_APP_API_URL+"quizzes",
+                    method:"PATCH",
+                    data:{
+                        quiz_id:this.quiz_id
+                    }
+
+                }).then((response)=>{
+                    console.log(response);
+                    this.quizzes = response.data;
+                }).catch((error)=>{
+                    console.log(error);
+                })
+            },
+
         },
     }
 </script>

@@ -36,8 +36,8 @@ const routes = [
     component: QuizView,
   },
   {
-    path: '/game/scoreboard',
-    name: 'game/scoreboard',
+    path: '/game/quiz/scoreboard',
+    name: 'game/quiz/scoreboard',
     component: ScoreView,
   },
   {

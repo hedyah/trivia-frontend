@@ -29,11 +29,15 @@
 
       <div><h3> Email: {{user.email}}</h3></div>
     </v-card-text>
-    <v-btn @click="clientlogout" block color="amber darken-1">
+
+    
+    <v-card-actions>
+    <v-btn @click="clientlogout"  color="amber darken-1">
         Log out
     </v-btn>
-    <v-card-actions>
-      
+    <v-btn @click="$router.push('/quiz/:genre_id')"  color="amber darken-1">
+        play
+    </v-btn>
     </v-card-actions>
   </v-card>
         </div>
